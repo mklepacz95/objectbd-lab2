@@ -1,0 +1,1439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25" zv="Cache for Windows (x86-64) 2016.2.1 (Build 803U_SU)" ts="2019-06-02 20:08:31">
+<Project name="labKl" LastModified="2019-06-02 18:36:24.199266">
+  <Items>
+    <ProjectItem name="rcp.Adres" type="CLS"></ProjectItem>
+    <ProjectItem name="rcp.Doctor" type="CLS"></ProjectItem>
+    <ProjectItem name="rcp.Drug" type="CLS"></ProjectItem>
+    <ProjectItem name="rcp.HealingEntity" type="CLS"></ProjectItem>
+    <ProjectItem name="rcp.Person" type="CLS"></ProjectItem>
+    <ProjectItem name="rcp.Pharamcy" type="CLS"></ProjectItem>
+    <ProjectItem name="rcp.Pharmacist" type="CLS"></ProjectItem>
+    <ProjectItem name="rcp.Place" type="CLS"></ProjectItem>
+    <ProjectItem name="rcp.Prescription" type="CLS"></ProjectItem>
+    <ProjectItem name="rcp.Dispense" type="CLS"></ProjectItem>
+  </Items>
+</Project>
+
+
+<Class name="rcp.Adres">
+<Super>%SerialObject,%Populate,%XML.Adaptor,%ZEN.DataModel.Adaptor</Super>
+<TimeChanged>65166,43683.059818</TimeChanged>
+<TimeCreated>65166,43164.124541</TimeCreated>
+
+<Property name="city">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="zone">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="street">
+<Type>%String</Type>
+</Property>
+
+<Property name="buildNo">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="localNo">
+<Type>%String</Type>
+</Property>
+
+<Property name="zipCode">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheSerialState</Type>
+<State>AdresState</State>
+<StreamLocation>^rcp.AdresS</StreamLocation>
+<Data name="AdresState">
+<Value name="1">
+<Value>city</Value>
+</Value>
+<Value name="2">
+<Value>zone</Value>
+</Value>
+<Value name="3">
+<Value>street</Value>
+</Value>
+<Value name="4">
+<Value>buildNo</Value>
+</Value>
+<Value name="5">
+<Value>localNo</Value>
+</Value>
+<Value name="6">
+<Value>zipCode</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="rcp.Adres">
+<Super>%SerialObject,%Populate,%XML.Adaptor,%ZEN.DataModel.Adaptor</Super>
+<TimeChanged>65166,43683.059818</TimeChanged>
+<TimeCreated>65166,43164.124541</TimeCreated>
+
+<Property name="city">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="zone">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="street">
+<Type>%String</Type>
+</Property>
+
+<Property name="buildNo">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="localNo">
+<Type>%String</Type>
+</Property>
+
+<Property name="zipCode">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheSerialState</Type>
+<State>AdresState</State>
+<StreamLocation>^rcp.AdresS</StreamLocation>
+<Data name="AdresState">
+<Value name="1">
+<Value>city</Value>
+</Value>
+<Value name="2">
+<Value>zone</Value>
+</Value>
+<Value name="3">
+<Value>street</Value>
+</Value>
+<Value name="4">
+<Value>buildNo</Value>
+</Value>
+<Value name="5">
+<Value>localNo</Value>
+</Value>
+<Value name="6">
+<Value>zipCode</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="rcp.Dispense">
+<Super>%Persistent,%Populate,%XML.Adaptor,%ZEN.DataModel.Adaptor</Super>
+<TimeChanged>65166,71237.817762</TimeChanged>
+<TimeCreated>65166,66294.476474</TimeCreated>
+
+<Property name="pharmacy">
+<Type>Pharamcy</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="pharmacist">
+<Type>Pharmacist</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="drug">
+<Type>Drug</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="type">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="VALUELIST" value=",ZAMYKAJACA,CZESCIOWA,ANULUJACA"/>
+</Property>
+
+<Property name="presciptionDispense">
+<Type>rcp.Prescription</Type>
+<Cardinality>one</Cardinality>
+<Inverse>dispense</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Index name="presciptionDispenseIndex">
+<Properties>presciptionDispense</Properties>
+</Index>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^rcp.DispenseD</DataLocation>
+<DefaultData>DispenseDefaultData</DefaultData>
+<IdLocation>^rcp.DispenseD</IdLocation>
+<IndexLocation>^rcp.DispenseI</IndexLocation>
+<StreamLocation>^rcp.DispenseS</StreamLocation>
+<Data name="DispenseDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>issueDate</Value>
+</Value>
+<Value name="3">
+<Value>pharmacy</Value>
+</Value>
+<Value name="4">
+<Value>pharmacist</Value>
+</Value>
+<Value name="5">
+<Value>drug</Value>
+</Value>
+<Value name="6">
+<Value>type</Value>
+</Value>
+<Value name="7">
+<Value>presciptionDispense</Value>
+</Value>
+</Data>
+</Storage>
+
+<Property name="issueDate">
+<Type>%UTC</Type>
+<Required>1</Required>
+</Property>
+</Class>
+
+
+<Class name="rcp.Dispense">
+<Super>%Persistent,%Populate,%XML.Adaptor,%ZEN.DataModel.Adaptor</Super>
+<TimeChanged>65166,71237.817762</TimeChanged>
+<TimeCreated>65166,66294.476474</TimeCreated>
+
+<Property name="pharmacy">
+<Type>Pharamcy</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="pharmacist">
+<Type>Pharmacist</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="drug">
+<Type>Drug</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="type">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="VALUELIST" value=",ZAMYKAJACA,CZESCIOWA,ANULUJACA"/>
+</Property>
+
+<Property name="presciptionDispense">
+<Type>rcp.Prescription</Type>
+<Cardinality>one</Cardinality>
+<Inverse>dispense</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Index name="presciptionDispenseIndex">
+<Properties>presciptionDispense</Properties>
+</Index>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^rcp.DispenseD</DataLocation>
+<DefaultData>DispenseDefaultData</DefaultData>
+<IdLocation>^rcp.DispenseD</IdLocation>
+<IndexLocation>^rcp.DispenseI</IndexLocation>
+<StreamLocation>^rcp.DispenseS</StreamLocation>
+<Data name="DispenseDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>issueDate</Value>
+</Value>
+<Value name="3">
+<Value>pharmacy</Value>
+</Value>
+<Value name="4">
+<Value>pharmacist</Value>
+</Value>
+<Value name="5">
+<Value>drug</Value>
+</Value>
+<Value name="6">
+<Value>type</Value>
+</Value>
+<Value name="7">
+<Value>presciptionDispense</Value>
+</Value>
+</Data>
+</Storage>
+
+<Property name="issueDate">
+<Type>%UTC</Type>
+<Required>1</Required>
+</Property>
+</Class>
+
+
+<Class name="rcp.Doctor">
+<Super>rcp.Person</Super>
+<TimeChanged>65166,63630.974041</TimeChanged>
+<TimeCreated>65166,44037.322385</TimeCreated>
+
+<Property name="PWZ">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="title">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="specialization">
+<Type>%String</Type>
+</Property>
+
+<Property name="pres">
+<Type>rcp.Prescription</Type>
+<Cardinality>many</Cardinality>
+<Inverse>doctor</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DefaultData>DoctorDefaultData</DefaultData>
+<ExtentSize>50</ExtentSize>
+<Data name="DoctorDefaultData">
+<Subscript>"Doctor"</Subscript>
+<Value name="1">
+<Value>PWZ</Value>
+</Value>
+<Value name="2">
+<Value>title</Value>
+</Value>
+<Value name="3">
+<Value>specialization</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>12</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>2</AverageFieldSize>
+</Property>
+<Property name="PESEL">
+<Selectivity>2.0000%</Selectivity>
+<AverageFieldSize>4.8</AverageFieldSize>
+</Property>
+<Property name="PWZ">
+<Selectivity>2.0000%</Selectivity>
+<AverageFieldSize>8.94</AverageFieldSize>
+</Property>
+<Property name="name">
+<Selectivity>2.0000%</Selectivity>
+<AverageFieldSize>15.46</AverageFieldSize>
+</Property>
+<Property name="specialization">
+<Selectivity>2.0000%</Selectivity>
+<AverageFieldSize>4.92</AverageFieldSize>
+</Property>
+<Property name="surname">
+<Selectivity>2.0000%</Selectivity>
+<AverageFieldSize>4.86</AverageFieldSize>
+</Property>
+<Property name="title">
+<Selectivity>2.1277%</Selectivity>
+<AverageFieldSize>20.72</AverageFieldSize>
+</Property>
+</Storage>
+</Class>
+
+
+<Class name="rcp.Doctor">
+<Super>rcp.Person</Super>
+<TimeChanged>65166,63630.974041</TimeChanged>
+<TimeCreated>65166,44037.322385</TimeCreated>
+
+<Property name="PWZ">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="title">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="specialization">
+<Type>%String</Type>
+</Property>
+
+<Property name="pres">
+<Type>rcp.Prescription</Type>
+<Cardinality>many</Cardinality>
+<Inverse>doctor</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DefaultData>DoctorDefaultData</DefaultData>
+<ExtentSize>50</ExtentSize>
+<Data name="DoctorDefaultData">
+<Subscript>"Doctor"</Subscript>
+<Value name="1">
+<Value>PWZ</Value>
+</Value>
+<Value name="2">
+<Value>title</Value>
+</Value>
+<Value name="3">
+<Value>specialization</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>12</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>2</AverageFieldSize>
+</Property>
+<Property name="PESEL">
+<Selectivity>2.0000%</Selectivity>
+<AverageFieldSize>4.8</AverageFieldSize>
+</Property>
+<Property name="PWZ">
+<Selectivity>2.0000%</Selectivity>
+<AverageFieldSize>8.94</AverageFieldSize>
+</Property>
+<Property name="name">
+<Selectivity>2.0000%</Selectivity>
+<AverageFieldSize>15.46</AverageFieldSize>
+</Property>
+<Property name="specialization">
+<Selectivity>2.0000%</Selectivity>
+<AverageFieldSize>4.92</AverageFieldSize>
+</Property>
+<Property name="surname">
+<Selectivity>2.0000%</Selectivity>
+<AverageFieldSize>4.86</AverageFieldSize>
+</Property>
+<Property name="title">
+<Selectivity>2.1277%</Selectivity>
+<AverageFieldSize>20.72</AverageFieldSize>
+</Property>
+</Storage>
+</Class>
+
+
+<Class name="rcp.Drug">
+<Super>%Persistent,%Populate,%XML.Adaptor,%ZEN.DataModel.Adaptor</Super>
+<TimeChanged>65166,67298.295458</TimeChanged>
+<TimeCreated>65166,46070.196181</TimeCreated>
+
+<Property name="name">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="GTIN">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="dose">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="form">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="VALUELIST" value="tabs, syrup, suppositories, ointment, drops"/>
+</Property>
+
+<Property name="drugOnPresciption">
+<Type>rcp.Prescription</Type>
+<Cardinality>many</Cardinality>
+<Inverse>drug</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Index name="GtinIndex">
+<Properties>GTIN</Properties>
+</Index>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^rcp.DrugD</DataLocation>
+<DefaultData>DrugDefaultData</DefaultData>
+<IdLocation>^rcp.DrugD</IdLocation>
+<IndexLocation>^rcp.DrugI</IndexLocation>
+<StreamLocation>^rcp.DrugS</StreamLocation>
+<ExtentSize>20</ExtentSize>
+<Data name="DrugDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>name</Value>
+</Value>
+<Value name="3">
+<Value>GTIN</Value>
+</Value>
+<Value name="4">
+<Value>dose</Value>
+</Value>
+<Value name="5">
+<Value>form</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>1.55</AverageFieldSize>
+</Property>
+<Property name="GTIN">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>4.95</AverageFieldSize>
+</Property>
+<Property name="dose">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>5</AverageFieldSize>
+</Property>
+<Property name="form">
+<Selectivity>25.0000%</Selectivity>
+<AverageFieldSize>8.05</AverageFieldSize>
+</Property>
+<Property name="name">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>16.45</AverageFieldSize>
+</Property>
+<SQLMap name="GtinIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="IDKEY">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+</Class>
+
+
+<Class name="rcp.Drug">
+<Super>%Persistent,%Populate,%XML.Adaptor,%ZEN.DataModel.Adaptor</Super>
+<TimeChanged>65166,67298.295458</TimeChanged>
+<TimeCreated>65166,46070.196181</TimeCreated>
+
+<Property name="name">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="GTIN">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="dose">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="form">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="VALUELIST" value="tabs, syrup, suppositories, ointment, drops"/>
+</Property>
+
+<Property name="drugOnPresciption">
+<Type>rcp.Prescription</Type>
+<Cardinality>many</Cardinality>
+<Inverse>drug</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Index name="GtinIndex">
+<Properties>GTIN</Properties>
+</Index>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^rcp.DrugD</DataLocation>
+<DefaultData>DrugDefaultData</DefaultData>
+<IdLocation>^rcp.DrugD</IdLocation>
+<IndexLocation>^rcp.DrugI</IndexLocation>
+<StreamLocation>^rcp.DrugS</StreamLocation>
+<ExtentSize>20</ExtentSize>
+<Data name="DrugDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>name</Value>
+</Value>
+<Value name="3">
+<Value>GTIN</Value>
+</Value>
+<Value name="4">
+<Value>dose</Value>
+</Value>
+<Value name="5">
+<Value>form</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>1.55</AverageFieldSize>
+</Property>
+<Property name="GTIN">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>4.95</AverageFieldSize>
+</Property>
+<Property name="dose">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>5</AverageFieldSize>
+</Property>
+<Property name="form">
+<Selectivity>25.0000%</Selectivity>
+<AverageFieldSize>8.05</AverageFieldSize>
+</Property>
+<Property name="name">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>16.45</AverageFieldSize>
+</Property>
+<SQLMap name="GtinIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="IDKEY">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+</Class>
+
+
+<Class name="rcp.HealingEntity">
+<Super>rcp.Place</Super>
+<TimeChanged>65166,64540.708028</TimeChanged>
+<TimeCreated>65166,44916.724357</TimeCreated>
+
+<Property name="type">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="VALUELIST" value=",Przychodnia,Szpital,Poradnia"/>
+</Property>
+
+<Property name="idHealingEntity">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Index name="idHelingEntity">
+<Properties>idHealingEntity</Properties>
+<Unique>1</Unique>
+</Index>
+
+<Property name="precription">
+<Type>rcp.Prescription</Type>
+<Cardinality>many</Cardinality>
+<Inverse>healingEntity</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DefaultData>HealingEntityDefaultData</DefaultData>
+<ExtentSize>10</ExtentSize>
+<Data name="HealingEntityDefaultData">
+<Subscript>"HealingEntity"</Subscript>
+<Value name="1">
+<Value>type</Value>
+</Value>
+<Value name="2">
+<Value>idHealingEntity</Value>
+</Value>
+<Value name="3">
+<Value>precription</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>19</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>2</AverageFieldSize>
+</Property>
+<Property name="address">
+<Selectivity>10.0000%,buildNo:10.0000%,city:11.1111%,localNo:10.0000%,street:10.0000%,zipCode:10.0000%,zone:10.0000%</Selectivity>
+<AverageFieldSize>55.5,buildNo:5,city:6.4,localNo:5,street:17.2,zipCode:5,zone:4.9</AverageFieldSize>
+</Property>
+<Property name="idHealingEntity">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>8.8</AverageFieldSize>
+</Property>
+<Property name="precription">
+<Selectivity>11.1111%</Selectivity>
+<AverageFieldSize>1.7</AverageFieldSize>
+</Property>
+<Property name="type">
+<Selectivity>50.0000%</Selectivity>
+<AverageFieldSize>15.4</AverageFieldSize>
+</Property>
+<SQLMap name="idHelingEntity">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="precriptionIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+
+<Property name="doctor">
+<Type>rcp.Doctor</Type>
+<Cardinality>many</Cardinality>
+<Inverse>doctor</Inverse>
+<Relationship>1</Relationship>
+</Property>
+</Class>
+
+
+<Class name="rcp.HealingEntity">
+<Super>rcp.Place</Super>
+<TimeChanged>65166,64540.708028</TimeChanged>
+<TimeCreated>65166,44916.724357</TimeCreated>
+
+<Property name="type">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="VALUELIST" value=",Przychodnia,Szpital,Poradnia"/>
+</Property>
+
+<Property name="idHealingEntity">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Index name="idHelingEntity">
+<Properties>idHealingEntity</Properties>
+<Unique>1</Unique>
+</Index>
+
+<Property name="precription">
+<Type>rcp.Prescription</Type>
+<Cardinality>many</Cardinality>
+<Inverse>healingEntity</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DefaultData>HealingEntityDefaultData</DefaultData>
+<ExtentSize>10</ExtentSize>
+<Data name="HealingEntityDefaultData">
+<Subscript>"HealingEntity"</Subscript>
+<Value name="1">
+<Value>type</Value>
+</Value>
+<Value name="2">
+<Value>idHealingEntity</Value>
+</Value>
+<Value name="3">
+<Value>precription</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>19</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>2</AverageFieldSize>
+</Property>
+<Property name="address">
+<Selectivity>10.0000%,buildNo:10.0000%,city:11.1111%,localNo:10.0000%,street:10.0000%,zipCode:10.0000%,zone:10.0000%</Selectivity>
+<AverageFieldSize>55.5,buildNo:5,city:6.4,localNo:5,street:17.2,zipCode:5,zone:4.9</AverageFieldSize>
+</Property>
+<Property name="idHealingEntity">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>8.8</AverageFieldSize>
+</Property>
+<Property name="precription">
+<Selectivity>11.1111%</Selectivity>
+<AverageFieldSize>1.7</AverageFieldSize>
+</Property>
+<Property name="type">
+<Selectivity>50.0000%</Selectivity>
+<AverageFieldSize>15.4</AverageFieldSize>
+</Property>
+<SQLMap name="idHelingEntity">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="precriptionIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+
+<Property name="doctor">
+<Type>rcp.Doctor</Type>
+<Cardinality>many</Cardinality>
+<Inverse>doctor</Inverse>
+<Relationship>1</Relationship>
+</Property>
+</Class>
+
+
+<Class name="rcp.Person">
+<Super>%Persistent,%Populate,%XML.Adaptor,%ZEN.DataModel.Adaptor</Super>
+<TimeChanged>65166,64170.248828</TimeChanged>
+<TimeCreated>65166,43444.601059</TimeCreated>
+
+<Property name="name">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="surname">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="PESEL">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="personOnPresciption">
+<Type>rcp.Prescription</Type>
+<Cardinality>many</Cardinality>
+<Inverse>person</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^rcp.PersonD</DataLocation>
+<DefaultData>PersonDefaultData</DefaultData>
+<IdLocation>^rcp.PersonD</IdLocation>
+<IndexLocation>^rcp.PersonI</IndexLocation>
+<StreamLocation>^rcp.PersonS</StreamLocation>
+<Data name="PersonDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>name</Value>
+</Value>
+<Value name="3">
+<Value>surname</Value>
+</Value>
+<Value name="4">
+<Value>PESEL</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="rcp.Person">
+<Super>%Persistent,%Populate,%XML.Adaptor,%ZEN.DataModel.Adaptor</Super>
+<TimeChanged>65166,64170.248828</TimeChanged>
+<TimeCreated>65166,43444.601059</TimeCreated>
+
+<Property name="name">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="surname">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="PESEL">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="personOnPresciption">
+<Type>rcp.Prescription</Type>
+<Cardinality>many</Cardinality>
+<Inverse>person</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^rcp.PersonD</DataLocation>
+<DefaultData>PersonDefaultData</DefaultData>
+<IdLocation>^rcp.PersonD</IdLocation>
+<IndexLocation>^rcp.PersonI</IndexLocation>
+<StreamLocation>^rcp.PersonS</StreamLocation>
+<Data name="PersonDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>name</Value>
+</Value>
+<Value name="3">
+<Value>surname</Value>
+</Value>
+<Value name="4">
+<Value>PESEL</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="rcp.Pharamcy">
+<Super>rcp.Place</Super>
+<TimeChanged>65166,63455.332522</TimeChanged>
+<TimeCreated>65166,44955.366237</TimeCreated>
+
+<Property name="idPharmacy">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Index name="idPharmacy">
+<Properties>idPharmacy</Properties>
+<Unique>1</Unique>
+</Index>
+
+<Property name="manager">
+<Type>Pharmacist</Type>
+<Required>1</Required>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DefaultData>PharamcyDefaultData</DefaultData>
+<ExtentSize>20</ExtentSize>
+<Data name="PharamcyDefaultData">
+<Subscript>"Pharamcy"</Subscript>
+<Value name="1">
+<Value>id</Value>
+</Value>
+<Value name="2">
+<Value>manager</Value>
+</Value>
+<Value name="3">
+<Value>idPharmacy</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>14</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>1.55</AverageFieldSize>
+</Property>
+<Property name="address">
+<Selectivity>5.0000%,buildNo:5.0000%,city:7.1429%,localNo:5.0000%,street:5.0000%,zipCode:5.0000%,zone:5.0000%</Selectivity>
+<AverageFieldSize>54.45,buildNo:4.9,city:6.2,localNo:5,street:16.35,zipCode:5,zone:5</AverageFieldSize>
+</Property>
+<Property name="idPharmacy">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>8.9</AverageFieldSize>
+</Property>
+<Property name="manager">
+<Selectivity>11.1111%</Selectivity>
+<AverageFieldSize>1.15</AverageFieldSize>
+</Property>
+<SQLMap name="idPharmacy">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+
+<Method name="changeManager">
+<FormalSpec><![CDATA[&newManager:Pharmacist]]></FormalSpec>
+<Private>1</Private>
+<Implementation><![CDATA[	Set ..manager = newManager
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="rcp.Pharamcy">
+<Super>rcp.Place</Super>
+<TimeChanged>65166,63455.332522</TimeChanged>
+<TimeCreated>65166,44955.366237</TimeCreated>
+
+<Property name="idPharmacy">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Index name="idPharmacy">
+<Properties>idPharmacy</Properties>
+<Unique>1</Unique>
+</Index>
+
+<Property name="manager">
+<Type>Pharmacist</Type>
+<Required>1</Required>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DefaultData>PharamcyDefaultData</DefaultData>
+<ExtentSize>20</ExtentSize>
+<Data name="PharamcyDefaultData">
+<Subscript>"Pharamcy"</Subscript>
+<Value name="1">
+<Value>id</Value>
+</Value>
+<Value name="2">
+<Value>manager</Value>
+</Value>
+<Value name="3">
+<Value>idPharmacy</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>14</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>1.55</AverageFieldSize>
+</Property>
+<Property name="address">
+<Selectivity>5.0000%,buildNo:5.0000%,city:7.1429%,localNo:5.0000%,street:5.0000%,zipCode:5.0000%,zone:5.0000%</Selectivity>
+<AverageFieldSize>54.45,buildNo:4.9,city:6.2,localNo:5,street:16.35,zipCode:5,zone:5</AverageFieldSize>
+</Property>
+<Property name="idPharmacy">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>8.9</AverageFieldSize>
+</Property>
+<Property name="manager">
+<Selectivity>11.1111%</Selectivity>
+<AverageFieldSize>1.15</AverageFieldSize>
+</Property>
+<SQLMap name="idPharmacy">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+
+<Method name="changeManager">
+<FormalSpec><![CDATA[&newManager:Pharmacist]]></FormalSpec>
+<Private>1</Private>
+<Implementation><![CDATA[	Set ..manager = newManager
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="rcp.Pharmacist">
+<Super>rcp.Person</Super>
+<TimeChanged>65166,62730.867819</TimeChanged>
+<TimeCreated>65166,44350.432416</TimeCreated>
+
+<Property name="PWZ">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="role">
+<Type>%String</Type>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DefaultData>PharmacistDefaultData</DefaultData>
+<ExtentSize>20</ExtentSize>
+<Data name="PharmacistDefaultData">
+<Structure>listnode</Structure>
+<Subscript>"Pharmacist"</Subscript>
+<Value name="1">
+<Value>PWZ</Value>
+</Value>
+<Value name="2">
+<Value>role</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>16</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>1.55</AverageFieldSize>
+</Property>
+<Property name="PESEL">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>4.85</AverageFieldSize>
+</Property>
+<Property name="PWZ">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>8.95</AverageFieldSize>
+</Property>
+<Property name="name">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>15.55</AverageFieldSize>
+</Property>
+<Property name="role">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>4.85</AverageFieldSize>
+</Property>
+<Property name="surname">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>4.95</AverageFieldSize>
+</Property>
+</Storage>
+</Class>
+
+
+<Class name="rcp.Pharmacist">
+<Super>rcp.Person</Super>
+<TimeChanged>65166,62730.867819</TimeChanged>
+<TimeCreated>65166,44350.432416</TimeCreated>
+
+<Property name="PWZ">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="role">
+<Type>%String</Type>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DefaultData>PharmacistDefaultData</DefaultData>
+<ExtentSize>20</ExtentSize>
+<Data name="PharmacistDefaultData">
+<Structure>listnode</Structure>
+<Subscript>"Pharmacist"</Subscript>
+<Value name="1">
+<Value>PWZ</Value>
+</Value>
+<Value name="2">
+<Value>role</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>16</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>1.55</AverageFieldSize>
+</Property>
+<Property name="PESEL">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>4.85</AverageFieldSize>
+</Property>
+<Property name="PWZ">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>8.95</AverageFieldSize>
+</Property>
+<Property name="name">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>15.55</AverageFieldSize>
+</Property>
+<Property name="role">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>4.85</AverageFieldSize>
+</Property>
+<Property name="surname">
+<Selectivity>5.0000%</Selectivity>
+<AverageFieldSize>4.95</AverageFieldSize>
+</Property>
+</Storage>
+</Class>
+
+
+<Class name="rcp.Place">
+<Super>%Persistent,%Populate,%XML.Adaptor,%ZEN.DataModel.Adaptor</Super>
+<TimeChanged>65166,44777.608675</TimeChanged>
+<TimeCreated>65166,44646.368459</TimeCreated>
+
+<Property name="address">
+<Type>Adres</Type>
+<Required>1</Required>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^rcp.PlaceD</DataLocation>
+<DefaultData>PlaceDefaultData</DefaultData>
+<IdLocation>^rcp.PlaceD</IdLocation>
+<IndexLocation>^rcp.PlaceI</IndexLocation>
+<StreamLocation>^rcp.PlaceS</StreamLocation>
+<Data name="PlaceDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>address</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="rcp.Place">
+<Super>%Persistent,%Populate,%XML.Adaptor,%ZEN.DataModel.Adaptor</Super>
+<TimeChanged>65166,44777.608675</TimeChanged>
+<TimeCreated>65166,44646.368459</TimeCreated>
+
+<Property name="address">
+<Type>Adres</Type>
+<Required>1</Required>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^rcp.PlaceD</DataLocation>
+<DefaultData>PlaceDefaultData</DefaultData>
+<IdLocation>^rcp.PlaceD</IdLocation>
+<IndexLocation>^rcp.PlaceI</IndexLocation>
+<StreamLocation>^rcp.PlaceS</StreamLocation>
+<Data name="PlaceDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>address</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="rcp.Prescription">
+<Super>%Persistent,%Populate,%XML.Adaptor,%ZEN.DataModel.Adaptor</Super>
+<TimeChanged>65166,72416.717292</TimeChanged>
+<TimeCreated>65166,46546.230314</TimeCreated>
+
+<Property name="issueDate">
+<Type>%Date</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="howMany">
+<Type>%Integer</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="healingEntity">
+<Type>rcp.HealingEntity</Type>
+<Cardinality>one</Cardinality>
+<Inverse>precription</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Index name="healingEntityIndex">
+<Properties>healingEntity</Properties>
+</Index>
+
+<Property name="doctor">
+<Type>rcp.Doctor</Type>
+<Cardinality>one</Cardinality>
+<Inverse>pres</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Index name="doctorIndex">
+<Properties>doctor</Properties>
+</Index>
+
+<Property name="drug">
+<Type>rcp.Drug</Type>
+<Cardinality>one</Cardinality>
+<Inverse>drugOnPresciption</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Index name="drugIndex">
+<Properties>drug</Properties>
+</Index>
+
+<Property name="person">
+<Type>rcp.Person</Type>
+<Cardinality>one</Cardinality>
+<Inverse>personOnPresciption</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Index name="personIndex">
+<Properties>person</Properties>
+</Index>
+
+<Property name="dispense">
+<Type>rcp.Dispense</Type>
+<Cardinality>many</Cardinality>
+<Inverse>presciptionDispense</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Method name="dispensePrescription">
+<FormalSpec>pharmacy:Pharamcy,pharmacist:Pharmacist,status:%String</FormalSpec>
+<ReturnType>Dispense</ReturnType>
+<Implementation><![CDATA[
+	Set dispense = ##class(rcp.Dispense).%New()
+	Set dispense.drug = ..drug
+	Set dispense.issueDate = $ZTIMESTAMP
+	set dispense.presciptionDispense = $this
+	Set dispense.pharmacist = pharmacist
+	Set dispense.pharmacy = pharmacy	
+	IF status = "Z" { 
+		Set ..status = "ZREALIZOWANA"
+		Set dispense.type = "ZAMYKAJACA"
+	}
+	IF status = "C" { 
+		Set ..status = "CZESCIOWO_ZREALIZOWANA" 
+		Set dispense.type = "CZESCIOWA"
+	}
+	IF status = "A" { 
+		Set ..status = "ANULOWANA" 
+		Set dispense.type = "ANULUJACA"
+	}
+	Set saveDispense = dispense.%Save()
+	Return dispense
+]]></Implementation>
+</Method>
+
+<Property name="status">
+<Type>%String</Type>
+<InitialExpression>"WYSTAWIONA"</InitialExpression>
+<Required>1</Required>
+<Parameter name="VALUELIST" value=",WYSTAWIONA,ZREALIZOWANA,CZESCIOWO_ZREALIZOWANA,ANULOWANA"/>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^rcp.PrescriptionD</DataLocation>
+<DefaultData>PrescriptionDefaultData</DefaultData>
+<IdLocation>^rcp.PrescriptionD</IdLocation>
+<IndexLocation>^rcp.PrescriptionI</IndexLocation>
+<StreamLocation>^rcp.PrescriptionS</StreamLocation>
+<ExtentSize>27</ExtentSize>
+<Data name="PrescriptionDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>issueDate</Value>
+</Value>
+<Value name="3">
+<Value>drugs</Value>
+</Value>
+<Value name="4">
+<Value>healingEntity</Value>
+</Value>
+<Value name="5">
+<Value>doctor</Value>
+</Value>
+<Value name="6">
+<Value>status</Value>
+</Value>
+<Value name="7">
+<Value>drug</Value>
+</Value>
+<Value name="8">
+<Value>howMany</Value>
+</Value>
+<Value name="9">
+<Value>person</Value>
+</Value>
+</Data>
+<Property name="%%CLASSNAME">
+<Selectivity>100.0000%</Selectivity>
+<AverageFieldSize>1</AverageFieldSize>
+</Property>
+<Property name="%%ID">
+<Selectivity>1</Selectivity>
+<AverageFieldSize>2</AverageFieldSize>
+</Property>
+<Property name="doctor">
+<Selectivity>5.5556%</Selectivity>
+<AverageFieldSize>1.26</AverageFieldSize>
+</Property>
+<Property name="drug">
+<Selectivity>3.7037%</Selectivity>
+<OutlierSelectivity>.962963:</OutlierSelectivity>
+<AverageFieldSize>.07</AverageFieldSize>
+</Property>
+<Property name="drugs">
+<Selectivity>4.7619%</Selectivity>
+<AverageFieldSize>205.9</AverageFieldSize>
+</Property>
+<Property name="healingEntity">
+<Selectivity>12.5000%</Selectivity>
+<AverageFieldSize>2</AverageFieldSize>
+</Property>
+<Property name="howMany">
+<Selectivity>3.7037%</Selectivity>
+<OutlierSelectivity>.777778:</OutlierSelectivity>
+<AverageFieldSize>1.96</AverageFieldSize>
+</Property>
+<Property name="issueDate">
+<Selectivity>3.7037%</Selectivity>
+<AverageFieldSize>5</AverageFieldSize>
+</Property>
+<Property name="person">
+<Selectivity>4.4444%</Selectivity>
+<OutlierSelectivity>.777778:</OutlierSelectivity>
+<AverageFieldSize>.37</AverageFieldSize>
+</Property>
+<Property name="status">
+<Selectivity>6.4815%</Selectivity>
+<OutlierSelectivity>.740741:</OutlierSelectivity>
+<AverageFieldSize>3.22</AverageFieldSize>
+</Property>
+<SQLMap name="IDKEY">
+<BlockCount>-12</BlockCount>
+</SQLMap>
+<SQLMap name="doctorIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="drugIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="healingEntityIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+<SQLMap name="personIndex">
+<BlockCount>-4</BlockCount>
+</SQLMap>
+</Storage>
+</Class>
+</Export>
